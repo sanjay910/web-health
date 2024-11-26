@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Talent Hunt Enrollment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #5e2817;
+            color: #fff;
+            padding: 10px 20px;
+        }
+        header .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        header nav a {
+            margin: 0 10px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+        header .cta {
+            background-color: #ffcc00;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        header .cta:hover {
+            background-color:#fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .hero {
+            text-align: center;
+            color: #c31d1d;
+            background: url('https://img.freepik.com/free-photo/portrait-young-male-breakdancer-against-wall_23-2147847266.jpg?t=st=1732554642~exp=1732558242~hmac=66c0dadd248a39b280e5888ce8f8421092fb878a42c764daaffa71b4a56f49bb&w=996') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+        }
+
+        .hero p {
+            margin: 10px 10PX;
+        }
+
+        .hero .cta-buttons a {
+            text-decoration: none;
+            padding: 10px 20px ;
+            margin: 30px;
+            background-color: #5e2817;
+            color: #efeaea;
+            border-radius: 5px;
+        }
+        .hero .cta-buttons a:hover {
+            text-decoration: none;
+            padding: 10px 20px ;
+            margin: 30px;
+            background-color: #fff;
+            color: black;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 20px;
+        }
+        .container {
+            width: 95%;
+            max-width: 1350px;
+            margin: 20px auto;
+        }
+        .section {
+            background: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .section img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        .section h2 {
+            margin-top: 0;
+            color: #0056b3;
+        }
+        .benefits ul, .dates ul, .categories ul {
+            padding-left: 20px;
+        }
+        .benefits ul li, .dates ul li, .categories ul li {
+            margin: 10px 0;
+        }
+        .box {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .box-item {
+            flex: 1 1 calc(33% - 20px);
+            background: #f0f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .box-item:hover {
+            flex: 1 1 calc(33% - 20px);
+            background: #591902;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            color: #e6f7ff;
+        }
+        .testimonials, .success-stories {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .testimonial, .story {
+            flex: 1 1 calc(50% - 20px);
+            background: #e6f7ff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .read-more {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .read-more:hover {
+            text-decoration: underline;
+        }
+
+        .about {
+            background: #f4f4f4;
+        }
+        
+        .form-section {
+            background-color: #e6f7ff;
+        }
+        .form-section form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .form-section form label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        .form-section form input,
+        .form-section form select,
+        .form-section form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-section form button {
+            width: 100%;
+            padding: 15px;
+            background-color: #5e2817;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .form-section form button:hover {
+            background-color: #0e1d2f;
+        }
+        .contact{
+            text-decoration: none;
+        }
+        footer {
+    background-color: #5e2817;
+    color: #fff;
+    padding: 20px 10px;
+    font-family: Arial, sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 5px 0;
+}
+
+ul li a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Social Media Icons */
+.social-icons a {
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+
+/* Contact Info */
+.contact-info a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+/* Newsletter Subscription */
+.newsletter form {
+    display: flex;
+    gap: 10px;
+}
+
+.newsletter input {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    flex: 1;
+}
+
+.newsletter button {
+    padding: 10px 20px;
+    background-color: #f04e30;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter button:hover {
+    background-color: #c03c25;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+.social-icons img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo">Talent Hunt</div>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#dates">Dates</a>
+        <a href="#prizes">Prizes</a>
+        <a href="#contact">Contact</a>
+        <a href="#FAQ">FAQ</a>
+        <a href="#GUILDELINES">Guidelines</a>
+    </nav>
+    <a href="#form" class="cta">Enroll Now</a>
+</header>
+<div class="hero">
+    <h1>Showcase Your Talent to the World!</h1>
+    <p>Enroll now and be part of the most exciting talent hunt of the year.</p>
+    <div class="cta-buttons">
+        <a href="#form">Register Now</a>
+        <a href="#about">Learn More</a>
+    </div>
+</div>
+
+
+
+<div class="container">
+
+    <!-- Section 3: About the Talent Hunt -->
+<div class="section" id="about">
+        <h2>What is the Talent Hunt?</h2>
+        <p>Discover an exciting event that celebrates creativity and talent across singing, dancing, acting, and stand-up comedy. This talent hunt offers participants a unique platform to showcase their skills and shine.</p>
+        <div class="benefits">
+            <h3>Benefits</h3>
+            <ul>
+                <li>Gain exposure in your field.</li>
+                <li>Win amazing prizes.</li>
+                <li>Network with professionals.</li>
+                <li>Receive professional feedback.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Section 4: Key Dates & Guidelines -->
+    <div class="section" id="dates">
+        <h2>Important Dates</h2>
+        <div class="dates">
+            <ul>
+                <li><strong>Enrollment Deadline:</strong> December 10, 2024</li>
+                <li><strong>Audition Dates:</strong> December 15-20, 2024</li>
+                <li><strong>Final Event Date:</strong> December 30, 2024</li>
+            </ul>
+        </div>
+        <div class="guidelines" id="GUILDELINES">
+            <h3>Guidelines</h3>
+            <p>Ensure you meet the eligibility criteria and follow all rules. For detailed guidelines, click below:</p>
+            <a href="guidelines.html" class="read-more">Read More</a>
+        </div>
+    </div>
+
+    <!-- Section 5: Categories & Prizes -->
+    <div class="section" id="prizes">
+        <h2>Categories & Rewards</h2>
+        <div class="categories">
+            <h3>Categories</h3>
+            <ul>
+                <li>Singing</li>
+                <li>Dancing</li>
+                <li>Comedy</li>
+                <li>Acting</li>
+            </ul>
+        </div>
+        <div class="box">
+            <div class="box-item">
+                <img src="https://img.freepik.com/free-vector/golden-winners-cup_1284-18399.jpg?t=st=1732553665~exp=1732557265~hmac=ef776dfb82e81a6bed2d32bcf025824e86e241b91348e517b3bbc16f794694aa&w=740" height="200PX" width="200PX"/>
+               
+                <h3>1st Prize</h3>
+                <p>₹50,000 + Trophy</p>
+            </div>
+            <div class="box-item">
+                <img src="https://img.freepik.com/free-vector/realistic-golden-luxury-certificate-template_23-2149052184.jpg?t=st=1732554081~exp=1732557681~hmac=144ad314a37201f5495cfc73ab2d143455909572e6be14df087a2bc66d23d234&w=900" height="200PX" width="200PX"/>
+        
+                <h3>2nd Prize</h3>
+                <p>₹25,000 + Certificate</p>
+            </div>
+            <div class="box-item">
+                <img src="https://img.freepik.com/free-vector/gradient-modern-certificate-template_23-2148965678.jpg?t=st=1732554341~exp=1732557941~hmac=9c40ac52ec9cfd8a567581797e73635e1b6afb1753c5f3a992da3bedbf0dbfc1&w=996" height="200PX" width="200PX"/>
+        
+                <h3>Special Recognition</h3>
+                <p>Certificates and Mentorship Opportunities</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6: Testimonials & Success Stories -->
+    <div class="section" id="testimonials">
+        <h2>Hear from Past Participants</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>"Participating in this event helped me gain confidence and exposure. Highly recommend!"</p>
+                <p>- Participant, 2023</p>
+            </div>
+            <div class="testimonial">
+                <p>"Winning the Talent Hunt was a turning point in my career. Great experience!"</p>
+                <p>- Winner, 2022</p>
+            </div>
+        </div>
+        <h3>Success Stories</h3>
+        <div class="success-stories" id="FAQ">
+            <div class="story">
+                <p><strong>Riya Sharma:</strong> From Talent Hunt winner to a professional singer with her debut album released in 2023!</p>
+            </div>
+            <div class="story">
+                <p><strong>Arjun Patel:</strong> Launched his career as a stand-up comedian, now performing internationally!</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Enrollment Form -->
+<div class="section form-section" id="form">
+    <h2>Sign Up Now</h2>
+    <form id="enrollment-form">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" required>
+        
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required>
+        
+        <label for="phone">Contact Number</label>
+        <input type="tel" id="phone" name="phone" required>
+        
+        <label for="category">Category</label>
+        <select id="category" name="category" required>
+            <option value="Singing">Singing</option>
+            <option value="Dancing">Dancing</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Acting">Acting</option>
+        </select>
+        
+        <label for="video">Upload Talent Video</label>
+        <input type="file" id="video" name="video">
+        
+        <label for="terms">
+            <input type="checkbox" id="terms" name="terms" required> I agree to the terms and conditions.
+        </label>
+        
+        <button type="submit">Enroll Now</button>
+    </form>
+</div>
+
+<!-- Footer -->
+<footer id="contact">
+    <p>Contact us at: <a href="mailto:info@talenthunt.com"color="black">info@talenthunt.com</a> | <a href="https://wa.me/9999999999">WhatsApp Us</a></p>
+    <footer>
+        <div class="footer-container">
+            <!-- Quick Links -->
+            <div class="quick-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+    
+            <!-- Social Media Icons -->
+            <div class="social-media">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Icon" style="width: 30px; height: 30px;">
+                    </a>
+                    <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram Icon" style="width: 30px; height: 30px;">
+                    </a>
+                    
+                    <a href="https://youtube.com" target="_blank" aria-label="YouTube">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube Icon" style="width: 50px; height: 50px;">
+                    </a>
+                </div>
+            </div>
+    
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>Email: <a href="mailto:info@talenthunt.com">info@talenthunt.com</a></p>
+                <p>Phone: <a href="tel:+1234567890">+91 9090900909</a></p>
+                <p>Address: Ashofly,guntur</p>
+            </div>
+    
+            <!-- Newsletter Subscription -->
+            <div class="newsletter">
+                <h3>Subscribe to Stay Updated</h3>
+                <form action="#" method="POST">
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        <p class="footer-bottom">&copy; 2024 Talent Hunt. All Rights Reserved.</p>
+    </footer>
+
+<script>
+    document.getElementById("enrollment-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const phone = document.getElementById("phone").value;
+
+        // Simulating email/WhatsApp integration
+        alert(Thank you ${name}! Details sent to our team. We'll contact you soon.);
+        window.location.href = https://wa.me/9999999999?text=Hi, I am ${name}. I have enrolled in Talent Hunt! My email: ${email}, Phone: ${phone};
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+         gsap.registerPlugin(ScrollTrigger);
+
+         gsap.from("#prizes",{
+        opacity:0,
+        y:100,
+        duration:2,
+        delay:0.3,
+        scrollTrigger:{
+          trigger:"#prizes",
+          start:"top 90%",
+          end:"center 20%",
+          // markers:true,
+          toggleActions:"play pause resume reset",
+        }
+      })
+      gsap.to("#prizes",{
+        opacity:1,
+        y:0,
+        duration:2,
+        delay:0.3,
+        scrollTrigger:{
+          trigger:"#prizes",
+          start:"top 90%",
+          end:"center 20%",
+          // markers:true,
+          toggleActions:"play pause resume reset",
+        }
+      }),
+      gsap.from("#testimonials",{
+        opacity:0,
+        y:100,
+        duration:2,
+        delay:0.3,
+        scrollTrigger:{
+          trigger:"#testimonials",
+          start:"top 90%",
+          end:"center 20%",
+          // markers:true,
+          toggleActions:"play pause resume reset",
+        }
+      })
+      gsap.to("#testimonials",{
+        opacity:1,
+        y:0,
+        duration:2,
+        delay:0.3,
+        scrollTrigger:{
+          trigger:"#testimonials",
+          start:"top 90%",
+          end:"center 20%",
+          // markers:true,
+          toggleActions:"play pause resume reset",
+        }
+      }),
+      gsap.from("#about",{
+        opacity:0,
+        y:100,
+        duration:2,
+        delay:0.3,
+        scrollTrigger:{
+          trigger:"#about",
+          start:"top 90%",
+          end:"center 20%",
+          // markers:true,
+          toggleActions:"play pause resume reset",
+        }
+      })
+      gsap.to("#about",{
+        opacity:1,
+        y:0,
+        duration:2,
+        delay:0.3,
+        scrollTrigger:{
+          trigger:"#about",
+          start:"top 90%",
+          end:"center 20%",
+          // markers:true,
+          toggleActions:"play pause resume reset",
+        }
+      })
+      gsap.from("#dates",{
+        opacity:0,
+        y:100,
+        duration:2,
+        delay:0.3,
+        scrollTrigger:{
+          trigger:"#dates",
+          start:"top 90%",
+          end:"center 20%",
+          // markers:true,
+          toggleActions:"play pause resume reset",
+        }
+      })
+      gsap.to("#dates",{
+        opacity:1,
+        y:0,
+        duration:2,
+        delay:0.3,
+        scrollTrigger:{
+          trigger:"#dates",
+          start:"top 90%",
+          end:"center 20%",
+          // markers:true,
+          toggleActions:"play pause resume reset",
+        }
+      })
+
+
+
+    </script>
+
+</body>
+</html>
